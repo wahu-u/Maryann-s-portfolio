@@ -1,0 +1,125 @@
+/* ===== COLOR PALETTE ===== */
+    :root {
+  /* ----- Maryann mostly wants pinks----- */
+  --pink-light: #f586a5;   /* a different shade of pink for page backgrounds */
+  --pink-soft: #f9c6d4;    /* soft pink for cards and sections */
+  --pink-main: #f08fab;    /* the signature pink for buttons and highlights */
+  --pink-deep: #d9577f;    /* deep pink for hover effects */
+  --burgundy: #5c172e;     /* for headings, text and small details */
+  --cream: #fffaf5;        /* warm white so the page is not tooo pink */
+
+ 
+}
+body {
+  background-color: var(--pink-light);  
+  color: var(--burgundy);               /* burgundy text softer than black */
+  margin: 0;
+}
+
+h1 {
+  color: var(--burgundy);
+}
+
+button {
+  background-color: var(--pink-main);   /* main pink button */
+  color: white;
+  border: none;                         /* removes the default grey border */
+}
+
+button:hover {
+  background-color: var(--pink-deep);   /* darker pink when the mouse is over it */
+}
+/* ===== FONTS ===== */
+body {
+  font-family: 'Bad Script', cursive;   
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    gap: 1rem;
+  min-height: 40vh;          /* vh is height of the screen */
+  display: flex;              /* flexbox lets us center things easily */
+  flex-direction: column;     /* stack the items top to bottom */
+  align-items: center;        /* center horizontally */
+  justify-content: center;    /* center vertically */
+  text-align: center;
+  background: linear-gradient(90deg, var(--pink-light), var(--pink-soft));
+} 
+.hero-hello {
+  font-family: 'Great Vibes', cursive; 
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.hero-name {
+  font-family: 'Alex Brush', cursive;
+  font-size: 6rem;
+  margin: 0.2em 0;
+  color: var(--pink-deep);
+}
+
+.hero-tagline {
+  font-family: 'Bad Script', cursive;
+  font-size: 2rem;
+  font-weight: 300;           
+}
+
+.hero-btn {
+  margin-top: 1rem;
+  padding: 0.2rem 1.5rem;       /* space inside the button */
+  background-color: var(--pink-deep);
+  color: rgb(223, 212, 219);
+  align-self:center;
+  text-decoration: none;      /* removes the default link underline */
+  border-radius: 50px;        /* big radius = pill shape */
+}
+
+.hero-btn:hover {
+  background-color: var(--burgundy);   /* burgundy shows up here as an accent */
+}
+
+/* ===== ABOUT SECTION ===== */
+.about {
+padding: 6rem 2rem;   /* more room above and below the content */
+  display: flex;               /* puts the children (photo box + text box) in a row */
+  align-items: center;         /* lines them up vertically in the middle */
+  gap: 2rem;                   /* space between the photo and the text */
+  padding: 4rem 2rem;          /* space inside the section: 4rem top/bottom, 2rem left/right */
+  max-width: 1000px;           /* stops the content from stretching too wide on big screens */
+  margin: 0 auto;              /* auto left/right margins center the whole section */
+   
+}.about-photo {
+  flex: 1;                     /* the photo box takes 1 share of the space */
+}
+
+.about-text {
+  flex: 1;  
+  font-family: 'Bad Script', cursive;  
+  font-size: 1.5rem;                 /* the text box takes 1 share too, so they split 50/50 */
+}
+
+.about-photo img {
+  width: 70%;                 /* the image fills its box, but no wider */
+  border-radius: 20px;         /* rounded corners for a softer look */
+}
+.about-wrapper {
+  background-color: var(--cream);   /* full-width band */
+}
+/* ===== ANIMATION: fade and slide up ===== */
+/* @keyframes describes the animation: where it starts and where it ends */
+@keyframes fadeUp {
+  from {
+    opacity: 0;                      /* invisible */
+    transform: translateY(40px);     /* pushed 40px down */
+  }
+  to {
+    opacity: 1;                      /* fully visible */
+    transform: translateY(0);        /* back in its normal place */
+  }
+}
+
+/* apply the animation to each hero item, one after the other */
+.hero-hello   { animation: fadeUp 1s ease both; }
+.hero-name    { animation: fadeUp 1s ease 0.3s both; }
+.hero-tagline { animation: fadeUp 1s ease 0.6s both; }
+.hero-btn     { animation: fadeUp 1s ease 0.9s both; }
