@@ -48,7 +48,7 @@ body {
 .hero-hello {
   font-family: 'Great Vibes', cursive; 
   font-size: 2.5rem;
-  margin: 0;
+  margin: 0.2em 0;
 }
 
 .hero-name {
@@ -72,8 +72,8 @@ body {
   align-self:center;
   text-decoration: none;      /* removes the default link underline */
   border-radius: 50px;        /* big radius = pill shape */
+  
 }
-
 .hero-btn:hover {
   background-color: var(--burgundy);   /* burgundy shows up here as an accent */
 }
@@ -101,25 +101,46 @@ padding: 6rem 2rem;   /* more room above and below the content */
 .about-photo img {
   width: 70%;                 /* the image fills its box, but no wider */
   border-radius: 20px;         /* rounded corners for a softer look */
+  border: 6px solid var(--pink-main);
+  box-shadow: 0 10px 30px var(--pink-soft);
+  transform: rotate(-3deg);
+  transition: transform 0.4s ease;
+}
+
+.about-photo img:hover {
+  transform: rotate(0deg) scale(1.03);
 }
 .about-wrapper {
   background-color: var(--cream);   /* full-width band */
 }
 /* ===== ANIMATION: fade and slide up ===== */
-/* @keyframes describes the animation: where it starts and where it ends */
-@keyframes fadeUp {
+/* @keyframes describes the animation and it does not usually need a trigger*/
+/*@keyframes called popIn that starts at scale(0) and ends at scale(1), applied to .hero-hello.*/
+@keyframes slideIn {
   from {
     opacity: 0;                      /* invisible */
-    transform: translateY(40px);     /* pushed 40px down */
+    transform: translateX(40px);     
   }
   to {
     opacity: 1;                      /* fully visible */
-    transform: translateY(0);        /* back in its normal place */
+    transform: translateX(0);        /* back in its normal place */
   }
 }
+/*@keyframes popIn{
+    from{
+        opacity: 0;
+        transform: scale(0);
 
-/* apply the animation to each hero item, one after the other */
-.hero-hello   { animation: fadeUp 1s ease both; }
-.hero-name    { animation: fadeUp 1s ease 0.3s both; }
-.hero-tagline { animation: fadeUp 1s ease 0.6s both; }
-.hero-btn     { animation: fadeUp 1s ease 0.9s both; }
+    }
+    to{
+        opacity : 1;
+        transform: scale(1);
+    }
+}*/
+
+/* this is where you actually use the animation */
+/*.hero-hello   { animation: popIn 1s ease both; }*/
+.hero-hello   { animation: slideIn 1s ease both; }
+.hero-name    { animation: slideIn 1s ease 0.3s both; }
+.hero-tagline { animation: slideIn 1s ease 0.6s both; }
+.hero-btn     { animation: slideIn 1s ease 0.9s both; }
